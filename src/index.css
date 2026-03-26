@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset body margins and ensure full height */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* Global text size - use Tailwind text-sm everywhere */
+body {
+  font-size: 14px;
+}
+
+/* Specific font sizes */
+header h2 {
+  font-size: 22px !important;
+}
+
+.auth-card h1 {
+  font-size: 20px !important;
+}
+
+/* Ultra-prominent message shadows for floating effect */
+.message-float {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Global scrollbar (achromatic) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+

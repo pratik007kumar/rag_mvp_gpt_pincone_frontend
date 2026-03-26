@@ -1,0 +1,52 @@
+/* ── Chat page styles (only what Tailwind can't do) ── */
+
+/* Sidebar scrollbar (4px width) */
+.sidebar-docs::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-docs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-docs::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+  border-radius: 2px;
+}
+
+.sidebar-docs::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+
+/* Chat messages scrollbar (light thumb) */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+/* Upload animation */
+.drop-zone-uploading {
+  animation: pulse-subtle 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.7; }
+}
+
+/* Send button press effect */
+.send-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}

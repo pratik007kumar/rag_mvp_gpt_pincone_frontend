@@ -1,0 +1,12 @@
+/* ── Auth page styles (signin/signup only) ── */
+
+/* Fix Chrome autofill background on light auth inputs */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus,
+.auth-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f5f5f5 inset !important;
+  box-shadow: 0 0 0 30px #f5f5f5 inset !important;
+  -webkit-text-fill-color: #262626 !important;
+}
+
