@@ -21,7 +21,10 @@ export const useChat = (workspaceId) => {
   }, [messages]);
 
   const loadChatHistory = useCallback(async () => {
-    if (!workspaceId) return;
+    if (!workspaceId) {
+      setInitializing(false);
+      return;
+    }
     
     try {
       setError('');
@@ -35,12 +38,10 @@ export const useChat = (workspaceId) => {
   }, [workspaceId]);
 
   useEffect(() => {
-    const init = async () => {
-      await loadChatHistory();
-      await documents.loadDocuments();
-    };
-    init();
-  }, [loadChatHistory, documents.loadDocuments]);
+    setMessages([]);
+    setInitializing(true);
+    loadChatHistory();
+  }, [loadChatHistory]);
 
   const sendMessage = useCallback(async () => {
     if (!query.trim() || !workspaceId) return;

@@ -47,8 +47,13 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       setError('');
-      const response = await authService.signup(userData);
-      const { access_token, user: newUser } = response.data;
+      await authService.signup(userData);
+      // Backend returns UserResponse (not Token), so auto-login after signup
+      const loginResponse = await authService.login({
+        email: userData.email,
+        password: userData.password,
+      });
+      const { access_token, user: newUser } = loginResponse.data;
       
       localStorage.setItem('access_token', access_token);
       localStorage.setItem('user', JSON.stringify(newUser));
@@ -63,7 +68,12 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await authService.logout();
+    } catch (_) {
+      // Ignore server errors — still clear local state
+    }
     localStorage.removeItem('access_token');
     localStorage.removeItem('user');
     setUser(null);

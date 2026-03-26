@@ -7,6 +7,13 @@ const authAPI = axios.create({
   timeout: API_TIMEOUT,
 });
 
+// Auto-attach token for protected auth endpoints
+authAPI.interceptors.request.use((config) => {
+  const token = localStorage.getItem('access_token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
 export const authService = {
   login: (data) => authAPI.post('/auth/login', data),
   signup: (data) => authAPI.post('/auth/signup', data),

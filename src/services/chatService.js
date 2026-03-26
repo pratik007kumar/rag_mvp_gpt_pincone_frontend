@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL, API_TIMEOUT } from '../utils/constants.js';
+import { attachRefreshInterceptor } from './apiInterceptors.js';
 
 const chatAPI = axios.create({
   baseURL: API_URL,
@@ -14,18 +15,8 @@ chatAPI.interceptors.request.use((config) => {
   return config;
 });
 
-// Add 401 interceptor
-chatAPI.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('user');
-      window.location.href = '/signin';
-    }
-    return Promise.reject(error);
-  }
-);
+// Token refresh on 401
+attachRefreshInterceptor(chatAPI);
 
 export const chatService = {
   query: (data) => chatAPI.post('/chat/query', data),
