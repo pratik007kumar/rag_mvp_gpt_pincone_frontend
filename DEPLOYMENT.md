@@ -44,7 +44,7 @@ Choose a unique bucket name (must be globally unique):
 ```bash
 # Replace 'my-rag-frontend' with your desired name
 BUCKET_NAME="aisync-frontend"
-REGION="us-east-1"
+REGION="ap-southeast-1"
 
 # Create bucket
 aws s3 mb s3://$BUCKET_NAME --region $REGION
