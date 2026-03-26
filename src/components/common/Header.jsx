@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth.js';
-import { ROUTES } from '../../utils/constants.js';
+import { ROUTES, APP_NAME } from '../../utils/constants.js';
 import WorkspaceSelector from '../workspace/WorkspaceSelector.jsx';
 import ChangePassword from '../auth/ChangePassword.jsx';
 
@@ -31,7 +31,7 @@ const Header = () => {
   if (loading) {
     return (
       <header className="flex items-center justify-between px-6 py-3 bg-white border-b border-gray-300 shadow-[0_4px_16px_rgba(0,0,0,0.15)] relative z-20">
-        <h2 className="font-bold text-gray-800">Knowledge Base</h2>
+        <h2 className="font-bold text-gray-800">{APP_NAME}</h2>
       </header>
     );
   }
@@ -40,7 +40,7 @@ const Header = () => {
     <>
       <header className="flex items-center justify-between px-6 py-3 bg-white border-b border-gray-300 shadow-[0_4px_16px_rgba(0,0,0,0.15)] relative z-20">
         <div className="flex items-center gap-4">
-          <h2 className="font-bold text-gray-800">Knowledge Base</h2>
+          <h2 className="font-bold text-gray-800">{APP_NAME}</h2>
           {isLoggedIn() && <WorkspaceSelector />}
         </div>
         {isLoggedIn() && user && (

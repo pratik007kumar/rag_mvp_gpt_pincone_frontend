@@ -1,5 +1,6 @@
-export const API_URL = 'http://localhost:8000/api/v1';
-export const API_TIMEOUT = 30000;
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+export const API_TIMEOUT = Number(import.meta.env.VITE_API_TIMEOUT) || 30000;
+export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Knowledge Base';
 
 export const ROUTES = {
   SIGNIN: '/signin',
