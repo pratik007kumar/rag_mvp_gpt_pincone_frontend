@@ -66,10 +66,11 @@ const Auth = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {isSignup && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="full_name" className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <input
+                id="full_name"
                 type="text"
                 name="full_name"
                 value={formData.full_name}
@@ -81,10 +82,11 @@ const Auth = () => {
           )}
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
+              id="email"
               type="email"
               name="email"
               value={formData.email}
@@ -95,10 +97,11 @@ const Auth = () => {
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
             <input
+              id="password"
               type="password"
               name="password"
               value={formData.password}

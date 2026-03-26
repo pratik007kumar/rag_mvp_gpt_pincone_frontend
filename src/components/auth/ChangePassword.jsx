@@ -71,10 +71,11 @@ const ChangePassword = ({ onClose }) => {
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="old_password" className="block text-sm font-medium text-gray-700 mb-1">
                 Current Password
               </label>
               <input
+                id="old_password"
                 type="password"
                 name="old_password"
                 value={formData.old_password}
@@ -85,10 +86,11 @@ const ChangePassword = ({ onClose }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="new_password" className="block text-sm font-medium text-gray-700 mb-1">
                 New Password
               </label>
               <input
+                id="new_password"
                 type="password"
                 name="new_password"
                 value={formData.new_password}
@@ -99,10 +101,11 @@ const ChangePassword = ({ onClose }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="confirm_password" className="block text-sm font-medium text-gray-700 mb-1">
                 Confirm New Password
               </label>
               <input
+                id="confirm_password"
                 type="password"
                 name="confirm_password"
                 value={formData.confirm_password}
