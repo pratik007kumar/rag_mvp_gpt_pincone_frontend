@@ -21,6 +21,7 @@ export const useDocuments = (workspaceId) => {
 
   useEffect(() => {
     loadDocuments();
+    setUploadedFiles([]); // Clear session files on workspace change
   }, [loadDocuments]);
 
   const uploadDocument = useCallback(async (file) => {
@@ -39,12 +40,11 @@ export const useDocuments = (workspaceId) => {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      await loadDocuments();
       await documentService.upload(workspaceId, formData);
-      setUploadedFiles(prev => [...prev, { name: file.name, uploadedAt: new Date() }]);
+      await loadDocuments();
       return { success: true };
     } catch (err) {
-      setError('Upload failed: ' + (err.response?.data?.detail || 'Unknown error'));
+      alert('Upload failed. Please try again.');
       return { success: false };
     } finally {
       setUploading(false);
