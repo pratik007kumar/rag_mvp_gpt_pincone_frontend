@@ -137,7 +137,7 @@ const Auth = ({ mode = "signin" }) => {
           <span className="text-gray-600 text-sm">
             {isSignup 
               ? 'Already have an account? ' 
-              : "Don't have an account? "
+              : "Don't have an account! "
             }
           </span>
           <button
