@@ -41,7 +41,8 @@ export const useChat = (workspaceId) => {
     setMessages([]);
     setInitializing(true);
     loadChatHistory();
-  }, [loadChatHistory]);
+    documents.loadDocuments();
+  }, [loadChatHistory,documents.loadDocuments]);
 
   const sendMessage = useCallback(async () => {
     if (!query.trim() || !workspaceId) return;

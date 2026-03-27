@@ -19,8 +19,10 @@ docAPI.interceptors.request.use((config) => {
 attachRefreshInterceptor(docAPI);
 
 export const documentService = {
+  list: (wsId) => docAPI.get(`/documents/list/${wsId}`),
   upload: (wsId, formData) => docAPI.post(`/documents/upload/${wsId}`, formData, {
     headers: { 'Content-Type': 'multipart/form-data' },
     timeout: 120000,
   }),
+  delete: (wsId, docId) => docAPI.delete(`/documents/delete/${wsId}/${docId}`),
 };
