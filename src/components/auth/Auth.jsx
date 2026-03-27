@@ -4,8 +4,8 @@ import { useAuth } from '../../hooks/useAuth.js';
 import { ROUTES } from '../../utils/constants.js';
 import './auth.css';
 
-const Auth = () => {
-  const [isSignup, setIsSignup] = useState(false);
+const Auth = ({ mode = "signin" }) => {
+  const [isSignup, setIsSignup] = useState(mode === "signup");
   const [formData, setFormData] = useState({ email: '', password: '', full_name: '' });
   const [successMessage, setSuccessMessage] = useState('');
   
@@ -24,7 +24,13 @@ const Auth = () => {
       : await login(formData);
     
     if (result.success) {
-      navigate(from, { replace: true });
+      if (isSignup) {
+        // For signup, show verification message, don't navigate
+        setSuccessMessage(result.message || 'Please check your email to verify your account');
+      } else {
+        // For login, navigate to home page
+        navigate(from, { replace: true });
+      }
     }
   };
 
@@ -33,10 +39,14 @@ const Auth = () => {
   };
 
   const toggleMode = () => {
-    setIsSignup(!isSignup);
+    const newMode = !isSignup;
+    setIsSignup(newMode);
     setSuccessMessage('');
     clearError();
     setFormData({ email: '', password: '', full_name: '' });
+    
+    // Navigate to the correct URL
+    navigate(newMode ? ROUTES.SIGNUP : ROUTES.SIGNIN);
   };
 
   if (user) {
@@ -77,6 +87,7 @@ const Auth = () => {
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                 required={isSignup}
+                autoComplete="off"
               />
             </div>
           )}
@@ -93,6 +104,7 @@ const Auth = () => {
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               required
+              autoComplete="off"
             />
           </div>
           
@@ -108,6 +120,7 @@ const Auth = () => {
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               required
+              autoComplete="new-password"
             />
           </div>
           

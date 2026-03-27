@@ -47,19 +47,11 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       setError('');
-      await authService.signup(userData);
-      // Backend returns UserResponse (not Token), so auto-login after signup
-      const loginResponse = await authService.login({
-        email: userData.email,
-        password: userData.password,
-      });
-      const { access_token, user: newUser } = loginResponse.data;
+      const response = await authService.signup(userData);
       
-      localStorage.setItem('access_token', access_token);
-      localStorage.setItem('user', JSON.stringify(newUser));
-      setUser(newUser);
-      
-      return { success: true };
+      // Backend now returns a message to check email
+      // Don't auto-login, just show the message
+      return { success: true, message: response.data.message };
     } catch (err) {
       setError(err.response?.data?.detail || 'Signup failed');
       return { success: false, error: err.response?.data?.detail };
