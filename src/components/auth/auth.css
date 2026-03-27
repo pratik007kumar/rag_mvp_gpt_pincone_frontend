@@ -10,3 +10,6 @@
   -webkit-text-fill-color: #262626 !important;
 }
 
+.signInForm  button {background-color: blue;}
+.signInForm  button.linkBtn {background-color: transparent;}
+.signInForm  button.linkBtn:hover {background-color: transparent;color: blue;}
