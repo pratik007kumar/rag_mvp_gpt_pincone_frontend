@@ -59,7 +59,7 @@ export const useDocuments = (workspaceId) => {
       setDocuments(prev => prev.filter(d => d.id !== docId));
       return { success: true };
     } catch (err) {
-      setError('Delete failed: ' + (err.response?.data?.detail || 'Unknown error'));
+      alert('Delete failed. Please try again.');
       return { success: false };
     }
   }, [workspaceId]);
