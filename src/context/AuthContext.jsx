@@ -27,7 +27,9 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       setError('');
+      console.log('DEBUG: Login credentials being sent:', credentials);
       const response = await authService.login(credentials);
+      console.log('DEBUG: Login response:', response.data);
       const { access_token, user: userData } = response.data;
       
       localStorage.setItem('access_token', access_token);
@@ -36,6 +38,7 @@ export const AuthProvider = ({ children }) => {
       
       return { success: true };
     } catch (err) {
+      console.log('DEBUG: Login error:', err.response?.data);
       setError(err.response?.data?.detail || 'Login failed');
       return { success: false, error: err.response?.data?.detail };
     } finally {

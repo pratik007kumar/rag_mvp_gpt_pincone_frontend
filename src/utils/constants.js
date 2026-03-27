@@ -6,5 +6,7 @@ export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Knowledge Base';
 export const ROUTES = {
   SIGNIN: '/signin',
   SIGNUP: '/signup',
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
   HOME: '/',
 };
