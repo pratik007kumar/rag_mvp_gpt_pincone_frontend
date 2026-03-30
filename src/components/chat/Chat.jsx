@@ -259,12 +259,12 @@ const Chat = () => {
               </div>
             </div>
           ) : (
-            <div className="max-w-3xl mx-auto space-y-4">
+            <div className="max-w-6xl space-y-4">
               {messages.map((msg, idx) => (
                 <div key={idx} className="space-y-3">
                   {/* User message - right aligned */}
                   <div className="flex justify-end">
-                    <div className="bg-gray-900 text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] whitespace-pre-wrap">
+                    <div className="blue-bg text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] whitespace-pre-wrap">
                       {msg.query}
                     </div>
                   </div>
@@ -301,7 +301,7 @@ const Chat = () => {
               {error}
             </div>
           )}
-          <div className="flex gap-2 max-w-3xl mx-auto items-end">
+          <div className="flex gap-2 max-w-6xl items-end">
             <textarea
               ref={textareaRef}
               value={query}
@@ -315,7 +315,7 @@ const Chat = () => {
             <button
               onClick={sendMessage}
               disabled={loading || !query.trim()}
-              className="px-4 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+              className="px-4 py-2.5 blue-bg text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />

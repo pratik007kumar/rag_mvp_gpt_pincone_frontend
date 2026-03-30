@@ -51,7 +51,7 @@ header h2 {
 }
 
 .workspaceDropdown {position: relative;}
-.workspaceDropdown button {background-color: blue;}
+.workspaceDropdown button {background-color:rgb(38, 91, 205);}
 .workspaceDropdown button span {color: white;}
 .workspaceDropdown button svg {color: white;}
 .workspaceDropdown button:hover {background-color: #ffffff;}
