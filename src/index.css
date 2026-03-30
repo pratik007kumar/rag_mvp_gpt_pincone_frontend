@@ -70,4 +70,4 @@ header h2 {
   background-color: rgb(240, 240, 254);
 }
 .listholder{display: flex;flex-direction: column;gap: 1px;}
-.lightBlue {background-color: #e9f0ff;}
+.lightBlue {background-color: #f0f0fe;}
