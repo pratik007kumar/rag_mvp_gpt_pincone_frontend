@@ -10,6 +10,6 @@
   -webkit-text-fill-color: #262626 !important;
 }
 
-.signInForm  button {background-color: rgb(38, 91, 205);}
+.signInForm button[type="submit"] {background-color: rgb(38, 91, 205);}
 .signInForm  button.linkBtn {background-color: transparent;}
 .signInForm  button.linkBtn:hover {background-color: transparent;color: rgb(38, 91, 205);}
