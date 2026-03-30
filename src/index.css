@@ -63,8 +63,15 @@ header h2 {
 .btnOption:hover button {color: white;background-color: black;}
 .mainHeader {width: 100%; justify-content: space-between;}
 
-.editbtn svg {}
-.deletBtn svg {}
+.btnOption:hover .editbtn  {background-color:rgb(38, 91, 205);}
+.btnOption:hover .deletBtn  {background-color:rgb(38, 91, 205);}
+
+.btnOption:hover .editbtn svg {color:#ffffff;}
+.btnOption:hover .deletBtn svg {color:#ffffff;}
+
+.editbtn:hover svg {color:#ffffff;}
+.deletBtn:hover svg {color:#ffffff;}
+
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(240, 240, 254);

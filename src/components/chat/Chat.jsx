@@ -354,7 +354,7 @@ const Chat = () => {
       </aside>
 
       {/* ── Right: Chat Area ── */}
-      <main className="flex-1 flex flex-col min-w-0 bg-[#f7f7f8]">
+      <main className="flex-1 flex flex-col min-w-0 lightBlue">
 
         {/* Messages */}
         <div className="chat-messages flex-1 overflow-y-auto px-6 pt-4 pb-4 flex flex-col-reverse">
@@ -404,7 +404,7 @@ const Chat = () => {
 
                   {/* User */}
                   <div className="flex justify-end">
-                    <div className="bg-[#303030] text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] whitespace-pre-wrap">
+                    <div className="blue-bg text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] whitespace-pre-wrap">
                       {msg.query}
                     </div>
                   </div>
@@ -448,7 +448,7 @@ const Chat = () => {
         </div>
 
         {/* Input */}
-        <div className="bg-[#f7f7f8] px-6 pb-6 pt-0">
+        <div className="bg-white px-6 pb-4 pt-4 shadow-sm border border-gray-20 pt-0">
 
           {error && (
             <div className="mb-3 p-2 bg-red-100 text-red-700 rounded text-sm max-w-3xl mx-auto">
@@ -488,7 +488,7 @@ const Chat = () => {
               <button
                 onClick={sendMessage}
                 disabled={loading || !query.trim()}
-                className="flex items-center justify-center h-10 w-10 bg-gray-900 text-white rounded-xl hover:bg-gray-800 disabled:opacity-50 transition"
+                className="blue-bg flex items-center justify-center h-10 w-10 bg-gray-900 text-white rounded-xl hover:bg-gray-800 disabled:opacity-50 transition"
               >
                 <svg
                   className="w-4 h-4"

@@ -150,7 +150,7 @@ const Auth = ({ mode = "signin" }) => {
       }
     } else if (currentMode === "signup") {
       try {
-        await signup(formData.email, formData.password, formData.full_name);
+        await signup(formData);
         setSuccessMessage('Account created! Please check your email to verify your account.');
         setError('');
       } catch (err) {
