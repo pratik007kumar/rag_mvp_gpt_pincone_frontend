@@ -108,7 +108,7 @@ const Chat = () => {
         <div className="p-4 border-b border-gray-200">
           <h3 className="font-bold text-gray-800 mb-4">Upload Documents</h3>
           <div
-            className={`rounded border-2 border-dashed transition-all duration-200 flex flex-col items-center justify-center py-12 px-4 ${
+            className={`lightBlue rounded border-2 border-dashed transition-all duration-200 flex flex-col items-center justify-center py-12 px-4 ${
               dragging
                 ? 'border-gray-500 bg-gray-100'
                 : 'border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-gray-100'
@@ -162,12 +162,12 @@ const Chat = () => {
         {/* Documents list */}
         <div className="sidebar-docs flex-1 overflow-y-auto px-3 py-2">
           {/* Backend documents (persistent) */}
-          <div>
+          <div className='listholder'>
             {documents.documents.length === 0 ? (
               <p className="text-gray-400 text-center mt-3 text-sm">No documents yet</p>
             ) : (
               documents.documents.map(doc => (
-                <div key={doc.id} className="flex items-center justify-between py-2.5 px-3 border-b border-gray-100 hover:bg-gray-50 group transition-colors duration-150">
+                <div key={doc.id} className="lightBlue flex items-center justify-between py-2.5 px-3 border-b border-gray-100 hover:bg-gray-50 group transition-colors duration-150">
                   <div className="min-w-0 flex-1 flex items-center">
                     {doc.file_name.toLowerCase().endsWith('.pdf') ? (
                       <i className="fas fa-file-pdf text-red-500 mr-2 shrink-0 text-lg"></i>

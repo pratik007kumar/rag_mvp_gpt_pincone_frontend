@@ -69,3 +69,5 @@ header h2 {
   --tw-bg-opacity: 1;
   background-color: rgb(240, 240, 254);
 }
+.listholder{display: flex;flex-direction: column;gap: 1px;}
+.lightBlue {background-color: #e9f0ff;}
