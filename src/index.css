@@ -50,3 +50,24 @@ header h2 {
   background: #737373;
 }
 
+.workspaceDropdown {position: relative;}
+.workspaceDropdown button {background-color:rgb(38, 91, 205);}
+.workspaceDropdown button span {color: white;}
+.workspaceDropdown button svg {color: white;}
+.workspaceDropdown button:hover {background-color: #ffffff;}
+.workspaceDropdown button:hover span, .workspaceDropdown button:hover svg {color: #000;}
+
+.btnOption {max-width: 240px; color: #ffffff;}
+.btnOption:hover {color: white;}
+.btnOption button {color: white;}
+.btnOption:hover button {color: white;background-color: black;}
+.mainHeader {width: 100%; justify-content: space-between;}
+
+.editbtn svg {}
+.deletBtn svg {}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240, 240, 254);
+}
+.listholder{display: flex;flex-direction: column;gap: 1px;}
+.lightBlue {background-color: #f0f0fe;}

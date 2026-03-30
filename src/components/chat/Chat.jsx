@@ -214,10 +214,11 @@ const Chat = () => {
         <div className="p-4 border-b border-gray-200">
           <h3 className="font-bold text-gray-800 mb-4">Upload Documents</h3>
           <div
-            className={`rounded border-2 border-dashed transition-all duration-200 flex flex-col items-center justify-center py-12 px-4 ${dragging
-              ? 'border-gray-500 bg-gray-100'
-              : 'border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-gray-100'
-              } ${documents.uploading ? 'pointer-events-none' : 'cursor-pointer'}`}
+            className={`lightBlue rounded border-2 border-dashed transition-all duration-200 flex flex-col items-center justify-center py-12 px-4 ${
+              dragging
+                ? 'border-gray-500 bg-gray-100'
+                : 'border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-gray-100'
+            } ${documents.uploading ? 'pointer-events-none' : 'cursor-pointer'}`}
             onClick={() => !documents.uploading && fileInputRef.current?.click()}
             onDragEnter={handleDragEnter}
             onDragOver={handleDragOver}
@@ -267,12 +268,12 @@ const Chat = () => {
           {/* Documents list */}
           <div className="sidebar-docs flex-1 overflow-y-auto px-3 py-2">
             {/* Backend documents (persistent) */}
-            <div>
+            <div className='listholder'>
               {documents.documents.length === 0 ? (
                 <p className="text-gray-400 text-center mt-3 text-sm">No documents yet</p>
               ) : (
                 documents.documents.map(doc => (
-                  <div key={doc.id} className="flex items-center justify-between py-2.5 px-3 border-b border-gray-100 hover:bg-gray-50 group transition-colors duration-150">
+                  <div key={doc.id} className="lightBlue flex items-center justify-between py-2.5 px-3 border-b border-gray-100 hover:bg-gray-50 group transition-colors duration-150">
                     <div className="min-w-0 flex-1 flex items-center">
                       {doc.file_name.toLowerCase().endsWith('.pdf') ? (
                         <i className="fas fa-file-pdf text-red-500 mr-2 shrink-0 text-lg"></i>
@@ -366,9 +367,25 @@ const Chat = () => {
               </div>
             </div>
           ) : (
-            <div className="max-w-3xl mx-auto space-y-4">
-
-              {/* 🔥 Loading at top for bottom-up rendering */}
+            <div className="max-w-6xl space-y-4">
+              {messages.map((msg, idx) => (
+                <div key={idx} className="space-y-3">
+                  {/* User message - right aligned */}
+                  <div className="flex justify-end">
+                    <div className="blue-bg text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] whitespace-pre-wrap">
+                      {msg.query}
+                    </div>
+                  </div>
+                  {/* AI response - left aligned (only if answer exists) */}
+                  {msg.answer !== null && (
+                    <div className="flex justify-start">
+                      <div className="bg-white text-gray-800 px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[75%] shadow-sm whitespace-pre-wrap">
+                        {msg.answer}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
               {loading && (
                 <div className="flex justify-start">
                   <div className="bg-white text-gray-500 px-4 py-2.5 rounded-2xl rounded-bl-sm shadow-sm border border-gray-200">
@@ -438,10 +455,7 @@ const Chat = () => {
               {error}
             </div>
           )}
-
-          <div className="flex gap-2 max-w-3xl mx-auto items-end bg-white rounded-2xl px-3 py-2 shadow-sm border border-gray-300 focus-within:ring-2 focus-within:ring-gray-400">
-
-            {/* Textarea */}
+          <div className="flex gap-2 max-w-6xl items-end">
             <textarea
               ref={textareaRef}
               value={query}

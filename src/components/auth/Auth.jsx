@@ -4,6 +4,8 @@ import { useAuth } from '../../hooks/useAuth.js';
 import { authService } from '../../services/authService.js';
 import { ROUTES } from '../../utils/constants.js';
 import './auth.css';
+import bgImage from '../../images/sign-in-bg.jpg';
+
 
 // PasswordInput component outside to prevent re-renders
 const PasswordInput = ({ id, name, value, onChange, placeholder, showState, setShowState }) => (
@@ -178,20 +180,20 @@ const Auth = ({ mode = "signin" }) => {
   }
 
   return (
-    <div className="bg-gray-200 flex items-center justify-center px-4 h-full">
+    <div className="signInForm bg-gray-200 flex items-center justify-center px-4 h-full" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="w-full max-w-md bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.35),0_4px_12px_rgba(0,0,0,0.25)] p-8">
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           {currentMode === "reset-password" ? 'Reset Password' : 
            currentMode === "forgot-password" ? 'Forgot Password' :
            currentMode === "signup" ? 'Create Account' : 'Sign In'}
         </h1>
-        
+
         {successMessage && (
           <div className="mb-4 p-3 bg-green-100 text-green-700 rounded">
             {successMessage}
           </div>
         )}
-        
+
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
             {error}
