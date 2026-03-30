@@ -398,49 +398,6 @@ const Chat = () => {
                 </div>
               )}
 
-              {/* 🔥 Messages in natural order for bottom-up rendering */}
-              {messages.map((msg, idx) => (
-                <div key={idx} className="space-y-3">
-
-                  {/* User */}
-                  <div className="flex justify-end">
-                    <div className="blue-bg text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] whitespace-pre-wrap">
-                      {msg.query}
-                    </div>
-                  </div>
-
-                  {/* AI */}
-                  {msg.answer !== null && (
-                    <div className="flex justify-start">
-                      <div className="bg-white text-gray-800 px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[75%] shadow-sm border border-gray-200 whitespace-pre-wrap">
-                        {msg.answer}
-                        {/* Message Actions */}
-                        <div className="flex gap-2 mt-2 pt-2 border-t border-gray-100">
-                          <button
-                            onClick={() => handleCopyMessage(msg.answer, msg.id)}
-                            className="flex items-center gap-1 text-gray-500 hover:text-gray-800 hover:bg-gray-100 rounded transition text-xs"
-                            title={copiedMessageId === msg.id ? "Copied!" : "Copy message"}
-                          >
-                            <i className={`fas ${copiedMessageId === msg.id ? 'fa-check' : 'fa-copy'}`}></i>
-                          </button>
-                          <button
-                            onClick={() => handleSpeakMessage(msg.answer, msg.id)}
-                            disabled={speakingMessageId !== null}
-                            className={`flex items-center justify-center h-6 w-6 rounded transition-all duration-200 ${
-                              speakingMessageId === msg.id 
-                                ? 'text-gray-700 hover:text-gray-700 bg-gray-100 animate-speaker-flicker' 
-                                : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100'
-                            } disabled:opacity-50`}
-                            title={speakingMessageId === msg.id ? "Speaking..." : "Speak message"}
-                          >
-                            <i className="fas fa-volume-up text-xs"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
 
               <div ref={messagesEndRef} />
             </div>
