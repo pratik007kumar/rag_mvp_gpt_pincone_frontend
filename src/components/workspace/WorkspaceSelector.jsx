@@ -85,7 +85,7 @@ const WorkspaceSelector = () => {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="workspaceDropdown" ref={dropdownRef}>
       {/* Trigger button */}
       <button
         onClick={() => setOpen(!open)}
@@ -104,7 +104,7 @@ const WorkspaceSelector = () => {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-200 z-50 overflow-hidden">
+        <div className="btnOption absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-200 z-50 overflow-hidden">
           {/* Workspace list */}
           <div className="max-h-60 overflow-y-auto py-1">
             {workspaces.map((ws) => (
@@ -147,7 +147,7 @@ const WorkspaceSelector = () => {
                     <>
                       <button
                         onClick={(e) => startEditing(e, ws)}
-                        className="text-gray-400 hover:text-gray-600 p-0.5"
+                        className="editbtn text-gray-400 hover:text-gray-600 p-0.5"
                         title="Rename"
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -157,7 +157,7 @@ const WorkspaceSelector = () => {
                       {ws.role === 'admin' && (
                         <button
                           onClick={(e) => handleDelete(e, ws.id)}
-                          className="text-gray-400 hover:text-red-600 p-0.5"
+                          className="deletBtn text-gray-400 hover:text-red-600 p-0.5"
                           title="Delete"
                         >
                           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">

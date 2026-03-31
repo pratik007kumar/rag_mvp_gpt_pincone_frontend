@@ -21,4 +21,6 @@ export const authService = {
   me: () => authAPI.get('/auth/me'),
   refresh: () => authAPI.post('/auth/refresh'),
   changePassword: (data) => authAPI.post('/auth/change-password', data),
+  forgotPassword: (email) => authAPI.post('/auth/forgot-password', { email }),
+  resetPassword: (token, password) => authAPI.post('/auth/reset-password', { token, password }),
 };

@@ -41,7 +41,10 @@ function AppContent() {
         <Header />
         <div className="flex-1 overflow-auto">
           <Routes>
-            <Route path={ROUTES.SIGNIN} element={<PublicRoute><Auth /></PublicRoute>} />
+            <Route path={ROUTES.SIGNIN} element={<PublicRoute><Auth mode="signin" /></PublicRoute>} />
+            <Route path={ROUTES.SIGNUP} element={<PublicRoute><Auth mode="signup" /></PublicRoute>} />
+            <Route path={ROUTES.FORGOT_PASSWORD} element={<PublicRoute><Auth mode="forgot-password" /></PublicRoute>} />
+            <Route path={ROUTES.RESET_PASSWORD} element={<PublicRoute><Auth mode="reset-password" /></PublicRoute>} />
             <Route path={ROUTES.HOME} element={<ProtectedRoute><Chat /></ProtectedRoute>} />
           </Routes>
         </div>
