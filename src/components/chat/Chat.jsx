@@ -427,7 +427,7 @@ const Chat = () => {
         </div>
 
         {/* Input */}
-        <div className="bg-white px-6 pb-4 pt-4 shadow-sm border border-gray-20 pt-0">
+        <div className="bg-white px-6 pb-4 pt-4 shadow-sm border border-gray-20">
 
           {error && (
             <div className="mb-3 p-2 bg-red-100 text-red-700 rounded text-sm max-w-3xl mx-auto">
