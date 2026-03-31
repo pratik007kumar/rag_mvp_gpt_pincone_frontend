@@ -50,3 +50,32 @@
 .send-btn:active:not(:disabled) {
   transform: scale(0.97);
 }
+
+/* Recording flicker animation */
+@keyframes flicker {
+  0%, 100% { 
+    color: #6b7280; /* gray-500 */
+  }
+  50% { 
+    color: #374151; /* gray-700 */
+  }
+}
+
+.animate-flicker {
+  animation: flicker 0.3s ease-in-out infinite;
+}
+
+/* Speaker flicker animation - same as microphone */
+@keyframes speaker-flicker {
+  0%, 100% { 
+    color: #6b7280; /* gray-500 */
+  }
+  50% { 
+    color: #374151; /* gray-700 */
+  }
+}
+
+.animate-speaker-flicker {
+  animation: speaker-flicker 0.3s ease-in-out infinite;
+}
+.blue-bg {background-color: rgb(38, 91, 205);}
